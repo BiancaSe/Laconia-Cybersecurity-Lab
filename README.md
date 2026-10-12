@@ -75,6 +75,62 @@ I installed Splunk Enterprise on a dedicated Debian Linux virtual machine to dev
 - Practice searching and investigating authentication events.
 - Develop basic security monitoring dashboards and alerts.
 
+  
+## Network Architecture Diagram
+
+```mermaid
+flowchart TB
+    HOST["Windows 11 Host - TychoStation"]
+    NAT["VMnet8 - NAT - 192.168.88.0/24"]
+    LAN["VMnet1 - RingGate - 192.168.10.0/24"]
+
+    HOST --- NAT
+    HOST --- LAN
+
+    DC["Laconia DC - Windows Server 2019 - 192.168.10.10"]
+    WIN["Rocinante - Windows 10 - 192.168.10.20"]
+    KALI["Medina - Kali Linux - 192.168.10.30"]
+    PARROT["MCRN Security - Parrot - 192.168.10.40"]
+    SPLUNK["Debian - Splunk Enterprise - 192.168.10.50"]
+
+    LAN --- DC
+    LAN --- WIN
+    LAN --- KALI
+    LAN --- PARROT
+    LAN --- SPLUNK
+
+    NAT -.- DC
+    NAT -.- WIN
+    NAT -.- KALI
+    NAT -.- PARROT
+    NAT -.- SPLUNK
+```
+
+
 This environment allows me to practice Windows domain administration, network troubleshooting, access management, and security monitoring in an isolated virtual lab.
 
+
+## Active Directory Administration
+
+I configured a Windows Server 2019 domain controller to practice enterprise identity management, authentication, and access control.
+
+### Implemented Features
+
+- Installed and configured Active Directory Domain Services (AD DS).
+- Created the `laconia.local` domain.
+- Configured DNS for domain name resolution.
+- Joined a Windows 10 workstation (Rocinante) to the domain.
+- Created and managed Organizational Units (OUs), user accounts, and security groups.
+- Configured Group Policy and reviewed domain password policies.
+- Verified domain connectivity using DNS queries and authentication-related network tests.
+
+### Organizational Structure
+
+The Active Directory environment includes organizational units representing departments within a fictional enterprise, including military operations, administration, and science.
+
+This structure provides a practical environment for exploring centralized administration, identity and access management, and security policies.
+
+### Skills Demonstrated
+
+Active Directory administration, Windows Server, DNS troubleshooting, Group Policy, user and group management, and identity security.
 
