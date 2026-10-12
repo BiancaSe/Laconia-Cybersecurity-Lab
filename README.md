@@ -168,4 +168,12 @@ Rocinante, a Windows 10 workstation, successfully joined the `laconia.local` dom
 ![Group Policy Security Settings](screenshots/group-policy-security.png)
 
 
+### Splunk Enterprise — Data Receiving
+
+Splunk Enterprise 10.4.3 running on Debian Linux, configured to receive forwarded data on TCP port 9997.
+
+![Splunk Receiving Configuration](screenshots/splunk-receiving.png)
+
+
+
 
