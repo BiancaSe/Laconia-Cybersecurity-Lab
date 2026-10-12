@@ -1,82 +1,37 @@
+
 # Laconia Cybersecurity Lab
 
-## Project Overview
+## Overview
 
-Laconia is a virtual enterprise cybersecurity lab I designed and built to develop practical skills in system administration, networking, cybersecurity, and security monitoring.
+Laconia is a virtual enterprise cybersecurity lab I designed and built using VMware Workstation to develop practical skills in networking, Windows Server administration, Active Directory security, and SIEM monitoring.
 
-The environment simulates a small corporate network using Windows Server, Windows 10, and multiple Linux systems connected through VMware Workstation.
+The environment simulates a small corporate network with Windows and Linux systems, centralized identity management, and Splunk Enterprise.
 
-The lab provides hands-on experience with Active Directory, DNS, Group Policy, network configuration, identity and access management, and Splunk SIEM.
-
-## Technologies Used
+## Technologies
 
 - **Virtualization:** VMware Workstation
-- **Operating Systems:** Windows Server 2019, Windows 10, Debian Linux, Kali Linux, Parrot Security OS
-- **Identity Management:** Active Directory Domain Services (AD DS), LDAP, Group Policy
+- **Operating Systems:** Windows Server 2019, Windows 10, Debian, Kali Linux, Parrot Security OS
+- **Identity & Access:** Active Directory, LDAP, Group Policy
 - **Networking:** TCP/IP, DNS, NAT, host-only networking
-- **Security Monitoring:** Splunk Enterprise
-- **Security Tools:** Linux command-line utilities and network troubleshooting tools
-
-## Project Objectives
-
-- Build and administer a realistic Windows domain environment.
-- Configure and troubleshoot communication between Windows and Linux systems.
-- Implement centralized identity and access management.
-- Develop practical experience with security monitoring and log analysis.
-- Use the environment for cybersecurity exercises and incident investigation.
-
+- **Security Monitoring:** Splunk Enterprise 10.4.3
+- **Tools:** Windows administration tools, Linux CLI, network troubleshooting utilities
 
 ## Network Architecture
 
-The Laconia lab uses VMware Workstation with two virtual networks:
+The lab uses two VMware virtual networks:
 
-- **VMnet1 (Host-only / RingGate):** 192.168.10.0/24 — Internal communication between lab machines.
-- **VMnet8 (NAT):** 192.168.88.0/24 — Provides external network connectivity through the host.
-
-### Virtual Machines
+- **VMnet1 (RingGate):** Host-only network, `192.168.10.0/24`
+- **VMnet8:** NAT network, `192.168.88.0/24`
 
 | Machine | Operating System | Internal IP | Role |
 |---|---|---|---|
-| Laconia Domain Controller | Windows Server 2019 | 192.168.10.10 | Active Directory, DNS, Group Policy |
+| Laconia DC | Windows Server 2019 | 192.168.10.10 | AD DS, DNS, Group Policy |
 | Rocinante | Windows 10 | 192.168.10.20 | Domain-joined workstation |
 | Medina | Kali Linux | 192.168.10.30 | Security testing |
 | MCRN Security | Parrot Security OS | 192.168.10.40 | Security testing |
-| Splunk Server | Debian Linux | 192.168.10.50 | Centralized log collection and analysis |
+| Splunk Server | Debian Linux | 192.168.10.50 | Centralized log collection |
 
-### Active Directory Configuration
-
-- **Domain:** `laconia.local`
-- **Domain Controller:** Windows Server 2019
-- **Services:** Active Directory Domain Services, DNS, Group Policy
-- **Configuration:** Organizational Units (OUs), user accounts, security groups, and domain-joined Windows workstation
-
-## Security Monitoring — Splunk SIEM
-
-I installed Splunk Enterprise on a dedicated Debian Linux virtual machine to develop practical skills in centralized log management, security monitoring, and incident investigation.
-
-### Configuration
-
-- **SIEM Platform:** Splunk Enterprise 10.4.3
-- **Operating System:** Debian Linux
-- **Internal IP Address:** `192.168.10.50`
-- **Receiving Port:** TCP 9997
-
-### Implementation
-
-- Installed and configured Splunk Enterprise on Debian.
-- Configured Splunk to receive forwarded data.
-- Verified connectivity and data forwarding to the Splunk server.
-- Established a foundation for collecting and analyzing security events from the lab environment.
-
-### Next Steps
-
-- Install Splunk Universal Forwarder on the Windows 10 workstation.
-- Collect Windows Security Event Logs.
-- Practice searching and investigating authentication events.
-- Develop basic security monitoring dashboards and alerts.
-
-  
-## Network Architecture Diagram
+### Network Diagram
 
 ```mermaid
 flowchart TB
@@ -106,74 +61,70 @@ flowchart TB
     NAT -.- SPLUNK
 ```
 
-
-This environment allows me to practice Windows domain administration, network troubleshooting, access management, and security monitoring in an isolated virtual lab.
-
+Solid lines represent the internal host-only network; dotted lines represent additional NAT connections.
 
 ## Active Directory Administration
 
-I configured a Windows Server 2019 domain controller to practice enterprise identity management, authentication, and access control.
+Configured a Windows Server 2019 domain controller for the `laconia.local` domain.
 
-### Implemented Features
+Key implementations:
 
-- Installed and configured Active Directory Domain Services (AD DS).
-- Created the `laconia.local` domain.
-- Configured DNS for domain name resolution.
-- Joined a Windows 10 workstation (Rocinante) to the domain.
-- Created and managed Organizational Units (OUs), user accounts, and security groups.
-- Configured Group Policy and reviewed domain password policies.
-- Verified domain connectivity using DNS queries and authentication-related network tests.
+- Installed Active Directory Domain Services and DNS.
+- Created Organizational Units, users, and security groups.
+- Joined the Rocinante Windows 10 workstation to the domain.
+- Configured and reviewed Group Policy Objects.
+- Examined password complexity, password history, account lockout, and Kerberos policies.
+- Verified DNS resolution and domain connectivity.
 
-### Organizational Structure
+The organizational structure simulates departments within a fictional enterprise, including military operations, administration, and science.
 
-The Active Directory environment includes organizational units representing departments within a fictional enterprise, including military operations, administration, and science.
+## Security Monitoring — Splunk
 
-This structure provides a practical environment for exploring centralized administration, identity and access management, and security policies.
+Installed Splunk Enterprise 10.4.3 on a dedicated Debian Linux VM.
 
-### Skills Demonstrated
+- **Server:** `192.168.10.50`
+- **Receiving port:** TCP 9997
+- **Purpose:** Centralized log collection, monitoring, and security investigation
 
-Active Directory administration, Windows Server, DNS troubleshooting, Group Policy, user and group management, and identity security.
+Configured Splunk to receive forwarded data and verified network connectivity and data forwarding.
 
-
+Planned improvements include collecting Windows Security Event Logs from Rocinante, investigating authentication events, and creating monitoring dashboards and alerts.
 
 ## Lab Screenshots
 
-### Active Directory — Organizational Units
-
-The screenshot below shows the organizational structure configured in the Laconia Active Directory domain.
+### Active Directory Organizational Units
 
 ![Active Directory Organizational Units](screenshots/active-directory-ous.png)
-
 
 ### Group Policy Objects
 
 ![Group Policy Objects](screenshots/group-policy.png)
 
-### Group Policy — Password and Account Lockout Security
-
-Configured and reviewed domain security policies using Windows Server 2019 Group Policy Management.
-
-The configuration includes password complexity requirements, password history, account lockout thresholds, and Kerberos authentication settings.
+### Password and Account Lockout Policies
 
 ![Group Policy Security Settings](screenshots/group-policy-security.pn.png)
 
+### Windows 10 Domain Membership
 
-### Windows 10 — Active Directory Domain Membership
-
-Rocinante, a Windows 10 workstation, successfully joined the `laconia.local` domain.
+Rocinante successfully joined the `laconia.local` domain.
 
 ![Rocinante Domain Membership](screenshots/rocinante-domain-join.png)
 
+### Splunk Data Receiving
 
-![Group Policy Security Settings](screenshots/group-policy-security.png)
-
-
-### Splunk Enterprise — Data Receiving
-
-Splunk Enterprise 10.4.3 running on Debian Linux, configured to receive forwarded data on TCP port 9997.
+Splunk Enterprise configured to receive forwarded data on TCP port 9997.
 
 ![Splunk Receiving Configuration](screenshots/splunk-receiving.png)
 
+## Troubleshooting and Lessons Learned
 
+- **DNS and domain connectivity:** Verified communication between the Windows client and domain controller using network connectivity tests and DNS queries.
+- **Splunk startup:** Investigated a failed Splunk startup, checked installation status and directory permissions, and successfully started Splunk using its dedicated service account.
+- **Security configuration:** Reviewed domain password and account lockout policies, identifying areas for future hardening, including increasing the minimum password length.
 
+## Future Development
 
+- Expand Windows event log collection and SIEM analysis.
+- Develop practical SOC investigation exercises.
+- Implement additional system hardening and security monitoring.
+- Integrate the SÝN AI Security Agent for Active Directory queries and administration.
