@@ -134,3 +134,13 @@ This structure provides a practical environment for exploring centralized admini
 
 Active Directory administration, Windows Server, DNS troubleshooting, Group Policy, user and group management, and identity security.
 
+
+
+## Lab Screenshots
+
+### Active Directory — Organizational Units
+
+The screenshot below shows the organizational structure configured in the Laconia Active Directory domain.
+
+![Active Directory Organizational Units](screenshots/active-directory-ous.png)
+
