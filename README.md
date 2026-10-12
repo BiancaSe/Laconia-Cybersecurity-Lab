@@ -155,7 +155,7 @@ Configured and reviewed domain security policies using Windows Server 2019 Group
 
 The configuration includes password complexity requirements, password history, account lockout thresholds, and Kerberos authentication settings.
 
-![Group Policy Security Settings](screenshots/group-policy-security.png)
+![Group Policy Security Settings](screenshots/group-policy-security.pn.png)
 
 ![Group Policy Security Settings](screenshots/group-policy-security.png)
 
