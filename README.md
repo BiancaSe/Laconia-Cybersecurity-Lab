@@ -157,6 +157,14 @@ The configuration includes password complexity requirements, password history, a
 
 ![Group Policy Security Settings](screenshots/group-policy-security.pn.png)
 
+
+### Windows 10 — Active Directory Domain Membership
+
+Rocinante, a Windows 10 workstation, successfully joined the `laconia.local` domain.
+
+![Rocinante Domain Membership](screenshots/rocinante-domain-join.png)
+
+
 ![Group Policy Security Settings](screenshots/group-policy-security.png)
 
 
