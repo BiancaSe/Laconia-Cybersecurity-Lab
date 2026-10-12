@@ -144,3 +144,13 @@ The screenshot below shows the organizational structure configured in the Laconi
 
 ![Active Directory Organizational Units](screenshots/active-directory-ous.png)
 
+### Group Policy — Password and Account Lockout Security
+
+Configured and reviewed domain security policies using Windows Server 2019 Group Policy Management.
+
+The configuration includes password complexity requirements, password history, account lockout thresholds, and Kerberos authentication settings.
+
+![Group Policy Security Settings](screenshots/group-policy-security.png)
+
+
+
