@@ -24,3 +24,32 @@ The lab provides hands-on experience with Active Directory, DNS, Group Policy, n
 - Implement centralized identity and access management.
 - Develop practical experience with security monitoring and log analysis.
 - Use the environment for cybersecurity exercises and incident investigation.
+
+
+## Network Architecture
+
+The Laconia lab uses VMware Workstation with two virtual networks:
+
+- **VMnet1 (Host-only / RingGate):** 192.168.10.0/24 — Internal communication between lab machines.
+- **VMnet8 (NAT):** 192.168.88.0/24 — Provides external network connectivity through the host.
+
+### Virtual Machines
+
+| Machine | Operating System | Internal IP | Role |
+|---|---|---|---|
+| Laconia Domain Controller | Windows Server 2019 | 192.168.10.10 | Active Directory, DNS, Group Policy |
+| Rocinante | Windows 10 | 192.168.10.20 | Domain-joined workstation |
+| Medina | Kali Linux | 192.168.10.30 | Security testing |
+| MCRN Security | Parrot Security OS | 192.168.10.40 | Security testing |
+| Splunk Server | Debian Linux | 192.168.10.50 | Centralized log collection and analysis |
+
+### Active Directory Configuration
+
+- **Domain:** `laconia.local`
+- **Domain Controller:** Windows Server 2019
+- **Services:** Active Directory Domain Services, DNS, Group Policy
+- **Configuration:** Organizational Units (OUs), user accounts, security groups, and domain-joined Windows workstation
+
+This environment allows me to practice Windows domain administration, network troubleshooting, access management, and security monitoring in an isolated virtual lab.
+
+
