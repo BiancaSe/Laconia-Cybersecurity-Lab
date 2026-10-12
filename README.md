@@ -90,6 +90,24 @@ Configured Splunk to receive forwarded data and verified network connectivity an
 
 Planned improvements include collecting Windows Security Event Logs from Rocinante, investigating authentication events, and creating monitoring dashboards and alerts.
 
+
+## Security Testing Environment
+
+The lab includes two dedicated Linux security testing machines:
+
+- **Medina (Kali Linux):** Used for network reconnaissance, connectivity testing, and cybersecurity exercises.
+- **MCRN Security (Parrot Security OS):** Provides an additional Linux environment for security testing, command-line practice, and network analysis.
+
+Both systems operate within the isolated VMware lab network, allowing security exercises against lab-owned infrastructure.
+
+### Tools and Skills
+
+- Linux command-line administration
+- Network connectivity testing
+- Network reconnaissance and troubleshooting
+- TCP/IP and DNS analysis
+
+
 ## Lab Screenshots
 
 ### Active Directory Organizational Units
